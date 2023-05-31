@@ -1,0 +1,20 @@
+body{
+    background-color: #E3E3E3;
+    font-family: serif;
+}
+
+.body{
+    padding-right: 25px ;
+    padding-left: 25px;
+}
+
+.head{
+    text-align: center;
+    color: #3b00c6;
+    padding-top: 20px;
+}
+
+.year{
+    color:#3b00c6;
+    width: 10%;
+}

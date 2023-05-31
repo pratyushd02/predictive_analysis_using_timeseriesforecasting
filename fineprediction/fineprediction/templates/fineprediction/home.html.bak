@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "fineprediction/home.css" %}">
+    <title>Fine Prediction</title>
+</head>
+<body>
+    
+    <h1 class = 'head'>Fine Prediction <img src="{% static "fineprediction/images/finelogo.jpg" %}" alt="finelogo" style="border-radius: 50%; width: 5%; height: 5%;"></h1><br><br><br>
+    <div class='body'>
+    <h4 style="text-align: left; color: #C60021;">Enter month and year for which you need Prediction<br></h4>
+    <form name="form" action="/" method='get' >
+       {% csrf_token %}
+       <h4><select name="month" id="month" style="color: #3b00c6;">
+        <option value="">--Select month--</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select></h4>
+      <h4 style="text-align: left; color: #C60021;"> Year: <input class='year' type="number" name="year"> <br><br> </h4>
+
+       <input class="btn btn-primary" style="font-size: 20px;" type="submit" value="Enter"><br><br><br><br>
+    </form>
+
+    {% if cc == 1 %}
+    <h4 style="text-align: left; color: #C60021;">Expected Sales Amount in tonnes: {{ans}} for  {{month}}/{{year}}</h4>
+    {% elif cc == 2 %}
+    <h4 style="text-align: left; color: #C60021;">There is some error in the entered data, please enter again</h4>
+    {% else %}
+    <h4 style="text-align: left; color: #C60021;">Welcome, Please Enter the Month and Year.</h4>
+    {% endif %}
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
